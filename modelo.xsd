@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.imobilizato.com/Modelo"
+        xmlns:mod="http://www.imobilizato.com/Modelo"
+        elementFormDefault="qualified">
+
+        <!-- NAO ESQUECER O PREFIXO!!! -->
+        <element name="monitors" type="mon:monitorsType"/>
+
+        <complexType name="monitorsType">
+            <sequence>
+                <element name="monitor" type="mon:monitorType" minOccurs="1" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+
+        <complexType name="monitorType">
+            <sequence>
+                <element name="size" type="mon:sizeType"/>
+                <element name="ratio" type="mon:ratioType"/>
+                <element name="launchDate" type="date"/>
+                <element name="feature" type="string" minOccurs="0" maxOccurs="3"/>
+                <element name="price" type="mon:precoMelhoradoType"/>
+            </sequence>
+            <attribute name="type" type="mon:monitorKindType" use="required"/>
+            <attribute name="modelNo" type="ID" use="required"/>
+            <attribute name="resolution" type="mon:resolutionType" use="required"/>
+        </complexType>
+
+        <simpleType name="ratioType">
+            <restriction base="string">
+                <enumeration value="4:3"/>
+                <enumeration value="16:9"/>
+                <enumeration value="16:10"/>
+            </restriction>
+        </simpleType>
+
+        <simpleType name="sizeType">
+            <restriction base="integer">
+                <minInclusive value="10"/>
+                <maxInclusive value="30"/>
+            </restriction>
+        </simpleType>
+
+        <complexType name="precoMelhoradoType">
+            <simpleContent>
+                <extension base="mon:precoType">
+                    <attribute name="currency" type="string" default="USD"/>
+                </extension>
+            </simpleContent>
+        </complexType>
+
+        <simpleType name="precoType">
+            <restriction base="decimal">
+                <minInclusive value="0"/>
+            </restriction>
+        </simpleType>
+
+        <simpleType name="monitorKindType">
+            <restriction base="string">
+                <enumeration value="LED"/>
+                <enumeration value="LCD"/>
+                <enumeration value="CRT"/>
+            </restriction>
+        </simpleType>
+
+        <simpleType name="monitorKindType">
+            <restriction base="string">
+                <enumeration value="HDTV"/>
+                <enumeration value="FULLHD"/>
+                <enumeration value="3D"/>
+            </restriction>
+        </simpleType>
+
+</schema>
