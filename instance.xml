@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<Age type="int">65</Age>
+	<Class type="str">Super Professor</Class>
+	<Nome type="str">HighEnd</Nome>
+</root>
