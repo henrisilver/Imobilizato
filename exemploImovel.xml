@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<imoveis xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.imobilizato.com/Modelo modelo.xsd" 
+            xmlns="http://www.imobilizato.com/Modelo">
+
+    <imovel codigo="ABC1234">
+        <finalidade>
+            <venda>
+                <casa>
+                    <larguraTerreno>100.0</larguraTerreno>
+                    <comprimentoTerreno>50.0</comprimentoTerreno>
+                    <areaTerreno>5000.0</areaTerreno>
+                    <areaConstruida>3000.0</areaConstruida>
+                    <numeroQuartos>23</numeroQuartos>
+                    <numeroBanheiros>30</numeroBanheiros>
+                    <numeroGaragens>3</numeroGaragens>
+                    <numeroSuites>15</numeroSuites>
+                    <numeroSalas>10</numeroSalas>
+                    <escritorio>true</escritorio>
+                    <piscina>true</piscina>
+                    <banheira>true</banheira>
+                    <armarios>true</armarios>
+                    <churrasqueira>true</churrasqueira>
+                    <quintal>true</quintal>
+                    <financiamento>false</financiamento>
+                </casa>
+            </venda>
+        </finalidade>
+        <valor>99999999.00</valor>
+        <endereco>
+            <rua>Gotham Drive</rua>
+            <numero>1007</numero>
+            <bairro>Jd. Morcegos</bairro>
+            <cidade>Gotham City</cidade>
+        </endereco>
+        <descricao>Uma mansão BATstante bonita.</descricao>
+        <contato>
+            <nome>Bruce Wayne</nome>
+            <telefone>(99) 9999-9999</telefone>
+        </contato>
+    </imovel>
+
+</imoveis>

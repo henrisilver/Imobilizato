@@ -1,74 +1,155 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
         targetNamespace="http://www.imobilizato.com/Modelo"
-        xmlns:mod="http://www.imobilizato.com/Modelo"
+        xmlns:imo="http://www.imobilizato.com/Modelo"
         elementFormDefault="qualified">
 
-        <!-- NAO ESQUECER O PREFIXO!!! -->
-        <element name="monitors" type="mon:monitorsType"/>
-
-        <complexType name="monitorsType">
-            <sequence>
-                <element name="monitor" type="mon:monitorType" minOccurs="1" maxOccurs="unbounded"/>
+        <element name="imoveis" type="imo:imoveisType"/>
+        
+        <complexType name="imoveisType">
+            <sequence maxOccurs="unbounded">
+                <element name="imovel" type="imo:imovelType"/>
             </sequence>
         </complexType>
 
-        <complexType name="monitorType">
+        <complexType name="imovelType">
             <sequence>
-                <element name="size" type="mon:sizeType"/>
-                <element name="ratio" type="mon:ratioType"/>
-                <element name="launchDate" type="date"/>
-                <element name="feature" type="string" minOccurs="0" maxOccurs="3"/>
-                <element name="price" type="mon:precoMelhoradoType"/>
+                <element name="finalidade" type="imo:finalidadeType"/>
+                <element name="valor" type="imo:valorType"/>
+                <element name="endereco" type="imo:enderecoType"/>
+                <element name="descricao" type="string"/>
+                <element name="contato" type="imo:contatoType"/>
             </sequence>
-            <attribute name="type" type="mon:monitorKindType" use="required"/>
-            <attribute name="modelNo" type="ID" use="required"/>
-            <attribute name="resolution" type="mon:resolutionType" use="required"/>
+            <attribute name="codigo" type="imo:codigoType"/>
+        </complexType>
+        
+        <complexType name="finalidadeType">
+            <choice>
+                <element name="venda" type="imo:vendaType"/>
+                <element name="aluguel" type="imo:aluguelType"/>
+            </choice>
         </complexType>
 
-        <simpleType name="ratioType">
+        <complexType name="enderecoType">
+            <sequence>
+                <element name="rua" type="string"/>
+                <element name="numero" type="nonNegativeInteger"/>
+                <element name="bairro" type="string"/>
+                <element name="cidade" type="string"/>
+            </sequence>
+        </complexType>
+
+        <complexType name="contatoType">
+            <sequence>
+                <element name="nome" type="string"/>
+                <element name="telefone" type="imo:telefoneType"/>
+            </sequence>
+        </complexType>
+
+        <complexType name="vendaType">
+            <choice>
+                <element name="casa" type="imo:vendaConstruidoType"/>
+                <element name="apartamento" type="imo:vendaConstruidoType"/>
+                <element name="chacara" type="imo:vendaConstruidoType"/>
+                <element name="barracao" type="imo:vendaConstruidoType"/>
+                <element name="terreno" type="imo:vendaTerrenoType"/>
+            </choice>
+        </complexType>
+
+        <complexType name="aluguelType">
+            <choice>
+                <element name="casa" type="imo:aluguelConstruidoType"/>
+                <element name="apartamento" type="imo:aluguelApartamentoType"/>
+                <element name="chacara" type="imo:aluguelConstruidoType"/>
+                <element name="barracao" type="imo:aluguelConstruidoType"/>
+            </choice>
+        </complexType>
+         
+        <simpleType name="codigoType">
+            <restriction base="ID">
+                <pattern value="[A-Z]{3}[0-9]{4}"/>
+            </restriction>
+        </simpleType>
+
+        <simpleType name="telefoneType">
             <restriction base="string">
-                <enumeration value="4:3"/>
-                <enumeration value="16:9"/>
-                <enumeration value="16:10"/>
+                <pattern value="\([0-9]{2}\) [0-9]{4}-[0-9]{4}"/>
             </restriction>
         </simpleType>
 
-        <simpleType name="sizeType">
-            <restriction base="integer">
-                <minInclusive value="10"/>
-                <maxInclusive value="30"/>
-            </restriction>
-        </simpleType>
-
-        <complexType name="precoMelhoradoType">
-            <simpleContent>
-                <extension base="mon:precoType">
-                    <attribute name="currency" type="string" default="USD"/>
-                </extension>
-            </simpleContent>
-        </complexType>
-
-        <simpleType name="precoType">
+        <simpleType name="valorType">
             <restriction base="decimal">
                 <minInclusive value="0"/>
             </restriction>
         </simpleType>
 
-        <simpleType name="monitorKindType">
-            <restriction base="string">
-                <enumeration value="LED"/>
-                <enumeration value="LCD"/>
-                <enumeration value="CRT"/>
-            </restriction>
-        </simpleType>
+        <complexType name="baseImovelType">
+            <sequence>
+                <element name="larguraTerreno" type="imo:valorType"/>
+                <element name="comprimentoTerreno" type="imo:valorType"/>
+                <element name="areaTerreno" type="imo:valorType"/>
+            </sequence>
+        </complexType>
 
-        <simpleType name="monitorKindType">
-            <restriction base="string">
-                <enumeration value="HDTV"/>
-                <enumeration value="FULLHD"/>
-                <enumeration value="3D"/>
-            </restriction>
-        </simpleType>
+        <complexType name="imovelConstruidoType">
+            <complexContent>
+                <extension base="imo:baseImovelType">
+                    <sequence>
+                        <element name="areaConstruida" type="imo:valorType"/>
+                        <element name="numeroQuartos" type="nonNegativeInteger"/>
+                        <element name="numeroBanheiros" type="nonNegativeInteger"/>
+                        <element name="numeroGaragens" type="nonNegativeInteger"/>
+                        <element name="numeroSuites" type="nonNegativeInteger"/>
+                        <element name="numeroSalas" type="nonNegativeInteger"/>
+                        <element name="escritorio" type="boolean"/>
+                        <element name="piscina" type="boolean"/>
+                        <element name="banheira" type="boolean"/>
+                        <element name="armarios" type="boolean"/>
+                        <element name="churrasqueira" type="boolean"/>
+                        <element name="quintal" type="boolean"/>
+                    </sequence>
+                </extension>
+            </complexContent>
+        </complexType>
+
+        <complexType name="aluguelConstruidoType">
+            <complexContent>
+                <extension base="imo:imovelConstruidoType">
+                    <sequence>
+                        <element name="IPTU" type="imo:valorType"/>
+                    </sequence>
+                </extension>
+            </complexContent>
+        </complexType>
+
+        <complexType name="aluguelApartamentoType">
+            <complexContent>
+                <extension base="imo:aluguelConstruidoType">
+                    <sequence>
+                        <element name="condominio" type="imo:valorType"/>
+                    </sequence>
+                </extension>
+            </complexContent>
+        </complexType>
+
+        <complexType name="vendaConstruidoType">
+            <complexContent>
+                <extension base="imo:imovelConstruidoType">
+                    <sequence>
+                        <element name="financiamento" type="boolean"/>
+                    </sequence>
+                </extension>
+            </complexContent>
+        </complexType>
+
+        <complexType name="vendaTerrenoType">
+            <complexContent>
+                <extension base="imo:baseImovelType">
+                    <sequence>
+                        <element name="financiamento" type="boolean"/>
+                    </sequence>
+                </extension>
+            </complexContent>
+        </complexType>
 
 </schema>
