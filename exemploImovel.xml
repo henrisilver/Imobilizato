@@ -7,10 +7,10 @@
         <finalidade>
             <venda>
                 <casa>
-                    <larguraTerreno>100.0</larguraTerreno>
-                    <comprimentoTerreno>50.0</comprimentoTerreno>
-                    <areaTerreno>5000.0</areaTerreno>
-                    <areaConstruida>3000.0</areaConstruida>
+                    <larguraTerreno>100,0</larguraTerreno>
+                    <comprimentoTerreno>50,0</comprimentoTerreno>
+                    <areaTerreno>5000,0</areaTerreno>
+                    <areaConstruida>3000,0</areaConstruida>
                     <numeroQuartos>23</numeroQuartos>
                     <numeroBanheiros>30</numeroBanheiros>
                     <numeroGaragens>3</numeroGaragens>
@@ -26,7 +26,7 @@
                 </casa>
             </venda>
         </finalidade>
-        <valor>99999999.00</valor>
+        <valor>99.999.999,00</valor>
         <endereco>
             <rua>Gotham Drive</rua>
             <numero>1007</numero>

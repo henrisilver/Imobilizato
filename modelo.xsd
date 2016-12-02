@@ -15,7 +15,7 @@
         <complexType name="imovelType">
             <sequence>
                 <element name="finalidade" type="imo:finalidadeType"/>
-                <element name="valor" type="imo:valorType"/>
+                <element name="valor" type="imo:precoType"/>
                 <element name="endereco" type="imo:enderecoType"/>
                 <element name="descricao" type="string"/>
                 <element name="contato" type="imo:contatoType"/>
@@ -77,17 +77,23 @@
             </restriction>
         </simpleType>
 
-        <simpleType name="valorType">
-            <restriction base="decimal">
-                <minInclusive value="0"/>
+        <simpleType name="dimensaoType">
+            <restriction base="string">
+                <pattern value="[0-9]+(,[0-9]+)?"/>
+            </restriction>
+        </simpleType>
+
+        <simpleType name="precoType">
+            <restriction base="string">
+                <pattern value="[0-9]{1,3}(\.[0-9]{3})*,[0-9]{2}"/>
             </restriction>
         </simpleType>
 
         <complexType name="baseImovelType">
             <sequence>
-                <element name="larguraTerreno" type="imo:valorType"/>
-                <element name="comprimentoTerreno" type="imo:valorType"/>
-                <element name="areaTerreno" type="imo:valorType"/>
+                <element name="larguraTerreno" type="imo:dimensaoType"/>
+                <element name="comprimentoTerreno" type="imo:dimensaoType"/>
+                <element name="areaTerreno" type="imo:dimensaoType"/>
             </sequence>
         </complexType>
 
@@ -95,7 +101,7 @@
             <complexContent>
                 <extension base="imo:baseImovelType">
                     <sequence>
-                        <element name="areaConstruida" type="imo:valorType"/>
+                        <element name="areaConstruida" type="imo:dimensaoType"/>
                         <element name="numeroQuartos" type="nonNegativeInteger"/>
                         <element name="numeroBanheiros" type="nonNegativeInteger"/>
                         <element name="numeroGaragens" type="nonNegativeInteger"/>
@@ -116,7 +122,7 @@
             <complexContent>
                 <extension base="imo:imovelConstruidoType">
                     <sequence>
-                        <element name="IPTU" type="imo:valorType"/>
+                        <element name="IPTU" type="imo:precoType"/>
                     </sequence>
                 </extension>
             </complexContent>
@@ -126,7 +132,7 @@
             <complexContent>
                 <extension base="imo:aluguelConstruidoType">
                     <sequence>
-                        <element name="condominio" type="imo:valorType"/>
+                        <element name="condominio" type="imo:precoType"/>
                     </sequence>
                 </extension>
             </complexContent>
