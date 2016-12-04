@@ -48,10 +48,7 @@ def getFieldFromDict(dictionary, field):
         return None
 
 def addToTree(flatDict, root):
-    # AO ADICIONAR ELEMENTOS E ATRIBUTOS, USAR O NAMESPACE!
-    # IMOBILIZATO + "imoveis"
-    # element = etree.Element(IMOBILIZATO + "NOME_ELEMENTO")
-    # element.set(IMOBILIZATO + "NOME_ATRIBUTO", "VALOR_ATRIBUTO")
+
     imovel = etree.SubElement(root, "imovel")
     imovel.set("codigo", unicode(getFieldFromDict(flatDict, "Codigo"), "utf-8"))
     
@@ -142,7 +139,9 @@ def runParser(filename):
     
     xml = tree2XML(tree)
     
-    writeXML(xml)
+    name = os.path.basename(filename)
+
+    writeXML(xml, os.path.splitext(name)[0])
     
     print "File parsed successfuly."
 
@@ -153,37 +152,37 @@ def readFile(filename):
     return read_data
 
 def text2tree(data):
-    #try:
-    lines = data.splitlines()
-        
-    flatDict = {}
+    try:
+        lines = data.splitlines()
+            
+        flatDict = {}
 
-    root = etree.Element(IMOBILIZATO + "imoveis", nsmap=NSMAP_IMOBILIZATO)
+        root = etree.Element(IMOBILIZATO + "imoveis", nsmap=NSMAP_IMOBILIZATO)
 
-    root.set(SCHEMA + "schemaLocation", "http://www.imobilizato.com/Modelo modelo.xsd")
-        
-    firstRun = True
+        root.set(SCHEMA + "schemaLocation", "http://www.imobilizato.com/Modelo modelo.xsd")
+            
+        firstRun = True
 
-    for line in lines:
-        parsedLine = line.split(":")
-        if parsedLine[0] == "Codigo" and not firstRun:
+        for line in lines:
+            parsedLine = line.split(":")
+            if parsedLine[0] == "Codigo" and not firstRun:
+                addToTree(flatDict, root)
+                flatDict = {}
+
+            flatDict[parsedLine[0].strip()] = parsedLine[1].strip()
+            firstRun = False
+
+        if len(flatDict) > 0:
             addToTree(flatDict, root)
-            flatDict = {}
 
-        flatDict[parsedLine[0].strip()] = parsedLine[1].strip()
-        firstRun = False
+        return root
 
-    if len(flatDict) > 0:
-        addToTree(flatDict, root)
-
-    return root
-
-    # except Exception as e:
-    #     print "Bad input! The txt file provided cannot be parsed."
-    #     exc_type, exc_obj, exc_tb = sys.exc_info()
-    #     fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-    #     print(exc_type, fname, exc_tb.tb_lineno)
-    #     return None
+    except Exception as e:
+        print "Bad input! The txt file provided cannot be parsed."
+        exc_type, exc_obj, exc_tb = sys.exc_info()
+        fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+        print(exc_type, fname, exc_tb.tb_lineno)
+        return None
 
 
 
@@ -192,16 +191,9 @@ def tree2XML(root):
     xml = etree.tostring(root, xml_declaration=True, encoding='UTF-8', pretty_print=True)
     return xml
 
-def writeXML(xml):
-    with open('instance.xml', 'w') as f:
+def writeXML(xml, filename):
+    with open("XML/" + str(filename) + ".xml", 'w') as f:
         f.write(xml)
-
-
-#dict = {'Nome': 'HighEnd', 'Age': 65, 'Class': 'Super Professor'}
-
-
-
-
 
 if __name__ == '__main__':
     if len(sys.argv) != 2:
