@@ -11,12 +11,12 @@
                 <!-- Bootstrap Stylesheet Inclusion -->
                 <link rel="stylesheet" href="css/bootstrap.min.css" />
 
-                <link rel="stylesheet" href="styles.css"/>
+                <link rel="stylesheet" href="css/styles.css"/>
             </head>
 
             <body>
                 <div class="container">
-                    <div class="page-header">
+                    <div class="page-header main-header">
                         <h1>Catálogo de Imóveis</h1>
                     </div>
                 <xsl:for-each select="imo:imoveis/imo:imovel">
