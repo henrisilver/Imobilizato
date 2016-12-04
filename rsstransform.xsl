@@ -13,27 +13,13 @@
     			<xsl:for-each select="imo:imoveis/imo:imovel">
                     <item>
                         <title>
-                            <xsl:if test="imo:finalidade/imo:venda">
-                                Venda: 
-                            </xsl:if>
-                            <xsl:if test="imo:finalidade/imo:aluguel">
-                                Aluguel:
-                            </xsl:if>
-                            <xsl:if test="imo:finalidade//imo:casa">
-                                casa
-                            </xsl:if>
-                            <xsl:if test="imo:finalidade//imo:apartamento">
-                                apartamento
-                            </xsl:if>
-                            <xsl:if test="imo:finalidade//imo:chacara">
-                                chácara
-                            </xsl:if>
-                            <xsl:if test="imo:finalidade//imo:barracao">
-                                barracão
-                            </xsl:if>
-                            <xsl:if test="imo:finalidade//imo:terreno">
-                                terreno
-                            </xsl:if>
+                            <xsl:if test="imo:finalidade/imo:venda">Venda: </xsl:if>
+                            <xsl:if test="imo:finalidade/imo:aluguel">Aluguel: </xsl:if>
+                            <xsl:if test="imo:finalidade//imo:casa">casa</xsl:if>
+                            <xsl:if test="imo:finalidade//imo:apartamento">apartamento</xsl:if>
+                            <xsl:if test="imo:finalidade//imo:chacara">chácara</xsl:if>
+                            <xsl:if test="imo:finalidade//imo:barracao">barracão</xsl:if>
+                            <xsl:if test="imo:finalidade//imo:terreno">terreno</xsl:if>
                         </title>
                         <link/>
                         <description>Bairro: <xsl:value-of select="imo:endereco/imo:bairro"/>, Valor: <xsl:value-of select="imo:valor"/>, Contato: <xsl:value-of select="imo:contato/imo:telefone"/></description>
