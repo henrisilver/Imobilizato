@@ -274,21 +274,6 @@
                     </td>
                 </tr>
             </xsl:if>
-            <xsl:if test="imo:financiamento">
-                <tr>
-                    <td>Financiamento</td>
-                    <td>
-                        <xsl:choose>
-                            <xsl:when test="imo:financiamento='true'">
-                                Sim
-                            </xsl:when>
-                            <xsl:when test="imo:financiamento='false'">
-                                Não
-                            </xsl:when>
-                        </xsl:choose>
-                    </td>
-                </tr>
-            </xsl:if>
         </table>
 
         <div class="page-header">
@@ -317,7 +302,7 @@
 
     <!-- Comeco do Template de Valor -->
     <xsl:template match="imo:valor">
-        <p>Valor: R$<xsl:value-of select="."/></p>
+        <p><b>Valor: R$<xsl:value-of select="."/></b></p>
     </xsl:template>
     <!-- Final do Template de Valor -->
 
