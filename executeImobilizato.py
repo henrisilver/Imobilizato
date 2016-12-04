@@ -19,9 +19,9 @@ def execute(filename):
     print "Generating mobile HTML " + generatedMobileHTML + " from mobiletransform.xsl..."
     os.system("xsltproc mobiletransform.xsl " + generatedXML + " > " + generatedMobileHTML)
 
-    # generatedRSSXML = "XSLTOutput/" + str(os.path.splitext(name)[0]) + "_rss.xml"
-    # print "Generating RSS XML " + generatedRSSXML + " from <RSS XSL NAME>..."
-    # os.system("xsltproc <RSS XSL NAME> " + generatedXML + " > " + generatedRSSXML)
+    generatedRSSXML = "XSLTOutput/" + str(os.path.splitext(name)[0]) + "_rss.xml"
+    print "Generating RSS XML " + generatedRSSXML + " from <RSS XSL NAME>..."
+    os.system("xsltproc rsstransform.xsl " + generatedXML + " > " + generatedRSSXML)
 
 if __name__ == '__main__':
     if len(sys.argv) != 2:
