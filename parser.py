@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from libs.lxml import etree
+from lxml import etree
 import sys, os
 
 SCHEMA_INSTANCE_NS = "http://www.w3.org/2001/XMLSchema-instance"

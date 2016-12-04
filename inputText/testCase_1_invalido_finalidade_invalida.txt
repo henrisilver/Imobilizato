@@ -1,0 +1,11 @@
+Codigo: ACD3415
+Finalidade: terreno
+Tipo: casa
+Dimensao: 11x25
+Area: 300
+Endereco: Rua Aquidabam, 504, Centro, São Carlos
+Contato: Maria Gabriela, tel. (16) 3415-3322
+Descricao: Casa em ótima localização.
+Valor: 450.000,00
+Pokemon: e legal
+Codigo: BCD1243

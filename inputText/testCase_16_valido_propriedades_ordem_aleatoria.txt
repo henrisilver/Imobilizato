@@ -1,0 +1,18 @@
+Codigo: ACD3415
+Escritorio: não
+Quintal: sim
+Financiamento: não
+Suites: 1
+Garagens: 2
+Endereco: Rua Aquidabam, 504, Centro, São Carlos
+Salas: 1
+Dimensao: 11x25
+Area: 300
+Construcao: 112
+Tipo: casa
+Contato: Maria Gabriela, tel. (16) 3415-3322
+Quartos: 2
+Descricao: Casa em ótima localização.
+Banheiros: 2
+Valor: 450.000,00
+Finalidade: venda

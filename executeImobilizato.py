@@ -12,8 +12,8 @@ def execute(filename):
     os.system("xmllint --schema modelo.xsd " + generatedXML + " --noout")
 
     # generatedDesktopHTML = "XSLTOutput/" + str(os.path.splitext(name)[0]) + "_desktop.html"
-    # print "Generating desktop HTML " + generatedDesktopHTML + " from <DESKTOP XSL NAME>..."
-    # os.system("xsltproc <DESKTOP XSL NAME " + generatedXML + " > " + generatedDesktopHTML)
+    # print "Generating desktop HTML " + generatedDesktopHTML + " from desktoptransform.xsl..."
+    # os.system("xsltproc desktoptransform.xsl " + generatedXML + " > " + generatedDesktopHTML)
 
     generatedMobileHTML = "XSLTOutput/" + str(os.path.splitext(name)[0]) + "_mobile.html"
     print "Generating mobile HTML " + generatedMobileHTML + " from mobiletransform.xsl..."

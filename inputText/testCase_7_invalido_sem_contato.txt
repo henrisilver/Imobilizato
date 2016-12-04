@@ -1,0 +1,17 @@
+Codigo: ACD3415
+Finalidade: venda
+Tipo: casa
+Dimensao: 11x25
+Area: 300
+Construcao: 112
+Endereco: Rua Aquidabam, 504, Centro, São Carlos
+Descricao: Casa em ótima localização.
+Quartos: 2
+Banheiros: 2
+Garagens: 2
+Suites: 1
+Salas: 1
+Escritorio: não
+Quintal: sim
+Valor: 450.000,00
+Financiamento: não
