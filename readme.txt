@@ -34,7 +34,8 @@ arquivos CSS e de imagens para as páginas "decoradas".
 Utilizamos nesse trabalho as seguintes ferramentas:
 	- Python 2.7.11
 	- lxml 3.6.4
-	- Bootstrap (COMPLEMENTA AQUI MARCELLOOO)
+	- Bootstrap CSS 3.3.7
+    - Bootstrap JS 3.3.7
 	- xmllint 
 	- xsltproc
 
