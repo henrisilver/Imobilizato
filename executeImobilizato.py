@@ -20,7 +20,7 @@ def execute(filename):
     os.system("xsltproc mobiletransform.xsl " + generatedXML + " > " + generatedMobileHTML)
 
     generatedRSSXML = "XSLTOutput/" + str(os.path.splitext(name)[0]) + "_rss.xml"
-    print "Generating RSS XML " + generatedRSSXML + " from <RSS XSL NAME>..."
+    print "Generating RSS XML " + generatedRSSXML + " from rsstransform.xsl..."
     os.system("xsltproc rsstransform.xsl " + generatedXML + " > " + generatedRSSXML)
 
 if __name__ == '__main__':
