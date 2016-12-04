@@ -4,7 +4,11 @@ import sys
 
 def execute(filename):
     print "\nParsing file " + str(filename) + " ...\n"
-    os.system("python parser.py " + str(filename))
+    status, output = commands.getstatusoutput("python parser.py " + str(filename))
+    print output
+    if status != 0:
+        print "\nAborting due to invalid .txt file...\n"
+        return
 
     name = os.path.basename(filename)
     generatedXML = "XML/" + str(os.path.splitext(name)[0]) + ".xml"
