@@ -11,7 +11,9 @@ Neste trabalho, implementamos um modelo de dados de um sistema de imobiliária.
 
 Os dados são recebidos por meio de um arquivo .txt, que é interpretado e 
 convertido por um parser para um XML que segue as regras de um XML Schema 
-também definido por nós.
+também definido por nós. Note que no arquivo TXT esperamos que a primeira
+linha sempre seja a de código de um imóvel, independentemente da ordem das
+outras propriedades.
 
 Criamos arquivos de transformação (folhas de estilos) para três saídas: uma
 para desktops, em HTML, utilizando CSS para exibir imóveis na tela; uma para
