@@ -189,10 +189,10 @@
                     <td>Escritório</td>
                     <td>
                         <xsl:choose>
-                            <xsl:when test=".[imo:escritorio='true']">
+                            <xsl:when test="imo:escritorio='true'">
                                 Sim
                             </xsl:when>
-                            <xsl:when test=".[imo:escritorio='false']">
+                            <xsl:when test="imo:escritorio='false'">
                                 Não
                             </xsl:when>
                         </xsl:choose>
@@ -204,10 +204,10 @@
                     <td>Piscina</td>
                     <td>
                         <xsl:choose>
-                            <xsl:when test=".[imo:piscina='true']">
+                            <xsl:when test="imo:piscina='true'">
                                 Sim
                             </xsl:when>
-                            <xsl:when test=".[imo:piscina='false']">
+                            <xsl:when test="imo:piscina='false'">
                                 Não
                             </xsl:when>
                         </xsl:choose>
@@ -219,10 +219,10 @@
                     <td>Banheira</td>
                     <td>
                         <xsl:choose>
-                            <xsl:when test=".[imo:banheira='true']">
+                            <xsl:when test="imo:banheira='true'">
                                 Sim
                             </xsl:when>
-                            <xsl:when test=".[imo:banheira='false']">
+                            <xsl:when test="imo:banheira='false'">
                                 Não
                             </xsl:when>
                         </xsl:choose>
@@ -234,10 +234,10 @@
                     <td>Armários</td>
                     <td>
                         <xsl:choose>
-                            <xsl:when test=".[imo:armarios='true']">
+                            <xsl:when test="imo:armarios='true'">
                                 Sim
                             </xsl:when>
-                            <xsl:when test=".[imo:armarios='false']">
+                            <xsl:when test="imo:armarios='false'">
                                 Não
                             </xsl:when>
                         </xsl:choose>
@@ -249,10 +249,10 @@
                     <td>Churrasqueira</td>
                     <td>
                         <xsl:choose>
-                            <xsl:when test=".[imo:churrasqueira='true']">
+                            <xsl:when test="imo:churrasqueira='true'">
                                 Sim
                             </xsl:when>
-                            <xsl:when test=".[imo:churrasqueira='false']">
+                            <xsl:when test="imo:churrasqueira='false'">
                                 Não
                             </xsl:when>
                         </xsl:choose>
@@ -264,10 +264,10 @@
                     <td>Quintal</td>
                     <td>
                         <xsl:choose>
-                            <xsl:when test=".[imo:quintal='true']">
+                            <xsl:when test="imo:quintal='true'">
                                 Sim
                             </xsl:when>
-                            <xsl:when test=".[imo:quintal='false']">
+                            <xsl:when test="imo:quintal='false'">
                                 Não
                             </xsl:when>
                         </xsl:choose>
@@ -279,10 +279,10 @@
                     <td>Financiamento</td>
                     <td>
                         <xsl:choose>
-                            <xsl:when test=".[imo:financiamento='true']">
+                            <xsl:when test="imo:financiamento='true'">
                                 Sim
                             </xsl:when>
-                            <xsl:when test=".[imo:financiamento='false']">
+                            <xsl:when test="imo:financiamento='false'">
                                 Não
                             </xsl:when>
                         </xsl:choose>
@@ -297,10 +297,10 @@
             <xsl:if test="imo:financiamento">
                 <p>
                 <xsl:choose>
-                    <xsl:when test=".[imo:financiamento='true']">
+                    <xsl:when test="imo:financiamento='true'">
                         Aceita financiamento
                     </xsl:when>
-                    <xsl:when test=".[imo:financiamento='false']">
+                    <xsl:when test="imo:financiamento='false'">
                         Não aceita financiamento
                     </xsl:when>
                 </xsl:choose>
