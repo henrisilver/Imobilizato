@@ -9,8 +9,10 @@
                 </title>
             </head>
             <body>
-                <h1>Imobilizato</h1>
-                <p>Imóveis disponíveis no sistema:</p>
+                <h1>Imobilizato <i>Classificados</i></h1>
+                <p>Ofertas de imóveis disponíveis agora</p>
+
+                <hr/>
 
                 <xsl:for-each select="imo:imoveis/imo:imovel">
                     <h3>
@@ -71,34 +73,61 @@
                             <strong>Detalhes do imóvel</strong>:
 
                             <ul>
-                                <li><xsl:value-of select="imo:finalidade//imo:numeroQuartos"/> quarto<xsl:if test="imo:finalidade//imo:numeroQuartos &gt; 1">s</xsl:if></li>
-                                <li><xsl:value-of select="imo:finalidade//imo:numeroBanheiros"/> banheiro<xsl:if test="imo:finalidade//imo:numeroBanheiros &gt; 1">s</xsl:if></li>
-                                <li><xsl:value-of select="imo:finalidade//imo:numeroSuites"/> suíte<xsl:if test="imo:finalidade//imo:numeroSuites &gt; 1">s</xsl:if></li>
-                                <li><xsl:value-of select="imo:finalidade//imo:numeroSalas"/> sala<xsl:if test="imo:finalidade//imo:numeroSalas &gt; 1">s</xsl:if></li>
-                                <li><xsl:value-of select="imo:finalidade//imo:numeroGaragens"/> garage<xsl:choose>
+                                <xsl:if test="imo:finalidade//imo:numeroQuartos">
+                                    <li>
+                                        <xsl:value-of select="imo:finalidade//imo:numeroQuartos"/> quarto<xsl:if test="imo:finalidade//imo:numeroQuartos &gt; 1">s</xsl:if>
+                                    </li>
+                                </xsl:if>
+                                <xsl:if test="imo:finalidade//imo:numeroBanheiros">
+                                    <li>
+                                        <xsl:value-of select="imo:finalidade//imo:numeroBanheiros"/> banheiro<xsl:if test="imo:finalidade//imo:numeroBanheiros &gt; 1">s</xsl:if>
+                                    </li>
+                                </xsl:if>
+                                <xsl:if test="imo:finalidade//imo:numeroSuites">
+                                    <li>
+                                        <xsl:value-of select="imo:finalidade//imo:numeroSuites"/> suíte<xsl:if test="imo:finalidade//imo:numeroSuites &gt; 1">s</xsl:if>
+                                    </li>
+                                </xsl:if>
+                                <xsl:if test="imo:finalidade//imo:numeroSalas">
+                                    <li>
+                                        <xsl:value-of select="imo:finalidade//imo:numeroSalas"/> sala<xsl:if test="imo:finalidade//imo:numeroSalas &gt; 1">s</xsl:if>
+                                    </li>
+                                </xsl:if>
+                                <xsl:if test="imo:finalidade//imo:numeroGaragens">
+                                    <li>
+                                        <xsl:value-of select="imo:finalidade//imo:numeroGaragens"/> garage<xsl:choose>
                                         <xsl:when test="imo:finalidade//imo:numeroGaragens &gt; 1">ns</xsl:when>
                                         <xsl:otherwise>m</xsl:otherwise>
-                                    </xsl:choose>.</li>
-                                <li><xsl:if test="imo:finalidade//imo:piscina = 'true'">Piscina</xsl:if></li>
-                                <li><xsl:if test="imo:finalidade//imo:banheira = 'true'">Banheira</xsl:if></li>
-                                <li><xsl:if test="imo:finalidade//imo:armarios = 'true'">Armários</xsl:if></li>
-                                <li><xsl:if test="imo:finalidade//imo:churrasqueira = 'true'">Churrasqueira</xsl:if></li>
-                                <li><xsl:if test="imo:finalidade//imo:quintal = 'true'">Quintal</xsl:if></li>
+                                        </xsl:choose>
+                                    </li>
+                                </xsl:if>
+
+                                <xsl:if test="imo:finalidade//imo:piscina = 'true'"><li>Piscina</li></xsl:if>
+                                <xsl:if test="imo:finalidade//imo:banheira = 'true'"><li>Banheira</li></xsl:if>
+                                <xsl:if test="imo:finalidade//imo:armarios = 'true'"><li>Armários</li></xsl:if>
+                                <xsl:if test="imo:finalidade//imo:churrasqueira = 'true'"><li>Churrasqueira</li></xsl:if>
+                                <xsl:if test="imo:finalidade//imo:quintal = 'true'"><li>Quintal</li></xsl:if>
                             </ul>
 
-                            Área construída: <xsl:value-of select="imo:finalidade//imo:areaConstruida"/>m²
+                            <strong>Área construída</strong>: <xsl:value-of select="imo:finalidade//imo:areaConstruida"/>m²
                         </xsl:otherwise>
                     </xsl:choose>
 
-                    <p><strong>Endereço</strong>: <xsl:value-of select="imo:endereco/imo:rua"/>, <xsl:value-of select="imo:endereco/imo:numero"/> - <xsl:value-of select="imo:endereco/imo:bairro"/> - <xsl:value-of select="imo:endereco/imo:cidade"/></p>
+                    <p>
+                        <strong>Endereço</strong>: <xsl:value-of select="imo:endereco/imo:rua"/>, <xsl:value-of select="imo:endereco/imo:numero"/> - <xsl:value-of select="imo:endereco/imo:bairro"/> - <xsl:value-of select="imo:endereco/imo:cidade"/>
+                    </p>
                     
                     <p><strong><xsl:choose>
                         <xsl:when test="imo:finalidade/imo:venda">Preço de venda</xsl:when>
                         <xsl:otherwise>Valor do aluguel</xsl:otherwise>
-                        </xsl:choose></strong>: <xsl:value-of select="imo:valor"/> (<xsl:choose>
-                        <xsl:when test="imo:finalidade//financiamento = 'true'">com</xsl:when>
-                        <xsl:otherwise>sem</xsl:otherwise>
-                    </xsl:choose> possibilidade de financiamento).</p>
+                        </xsl:choose></strong>: <xsl:value-of select="imo:valor"/>
+                        
+                        <xsl:if test="imo:finalidade/imo:venda"> 
+                            (<xsl:choose>
+                                <xsl:when test="imo:finalidade//imo:financiamento='true'">com</xsl:when>
+                                <xsl:otherwise>sem</xsl:otherwise>
+                            </xsl:choose> 
+                            possibilidade de financiamento)</xsl:if></p>
 
                     <xsl:if test="imo:finalidade//imo:condominio">
                         <p><strong>Valor do condomínio</strong>: R$<xsl:value-of select="imo:finalidade//imo:condominio"/></p>
@@ -108,8 +137,12 @@
                         <p><strong>Valor do IPTU</strong>: R$<xsl:value-of select="imo:finalidade//imo:IPTU"/></p>
                     </xsl:if>
 
+                    <br />
+
+                    Para mais informações:
                     <p><strong>Contato</strong>: <xsl:value-of select="imo:contato/imo:nome"/></p>
                     <p><strong>Telefone</strong>: <xsl:value-of select="imo:contato/imo:telefone"/></p>
+                    <hr/>
                 </xsl:for-each>
             </body>
         </html>
