@@ -1,30 +1,34 @@
 import os
+import commands
 import sys
 
 def execute(filename):
-    print "Parsing file " + str(filename) + " ..."
+    print "\nParsing file " + str(filename) + " ...\n"
     os.system("python parser.py " + str(filename))
 
     name = os.path.basename(filename)
     generatedXML = "XML/" + str(os.path.splitext(name)[0]) + ".xml"
 
-    print "Checking generated " + generatedXML + " against the schema in modelo.xsd..."
-    os.system("xmllint --schema modelo.xsd " + generatedXML + " --noout")
+    print "\nChecking generated " + generatedXML + " against the schema in modelo.xsd...\n"
+    status, output = commands.getstatusoutput("xmllint --schema modelo.xsd " + generatedXML + " --noout")
+    if status != 0:
+        print "\nNot generating Desktop, mobile HTML and RSS XML since XML is invalid...\n"
+        return
 
-    # generatedDesktopHTML = "XSLTOutput/" + str(os.path.splitext(name)[0]) + "_desktop.html"
-    # print "Generating desktop HTML " + generatedDesktopHTML + " from desktoptransform.xsl..."
-    # os.system("xsltproc desktoptransform.xsl " + generatedXML + " > " + generatedDesktopHTML)
+    generatedDesktopHTML = "XSLTOutput/" + str(os.path.splitext(name)[0]) + "_desktop.html"
+    print "Generating desktop HTML " + generatedDesktopHTML + " from desktoptransform.xsl..."
+    os.system("xsltproc desktoptransform.xsl " + generatedXML + " > " + generatedDesktopHTML)
 
     generatedMobileHTML = "XSLTOutput/" + str(os.path.splitext(name)[0]) + "_mobile.html"
-    print "Generating mobile HTML " + generatedMobileHTML + " from mobiletransform.xsl..."
+    print "\nGenerating mobile HTML " + generatedMobileHTML + " from mobiletransform.xsl...\n"
     os.system("xsltproc mobiletransform.xsl " + generatedXML + " > " + generatedMobileHTML)
 
     generatedRSSXML = "XSLTOutput/" + str(os.path.splitext(name)[0]) + "_rss.xml"
-    print "Generating RSS XML " + generatedRSSXML + " from rsstransform.xsl..."
+    print "\nGenerating RSS XML " + generatedRSSXML + " from rsstransform.xsl...\n"
     os.system("xsltproc rsstransform.xsl " + generatedXML + " > " + generatedRSSXML)
 
 if __name__ == '__main__':
     if len(sys.argv) != 2:
-        print "Wrong usage! Please try again.\nUsage: executeImobilizato.py <input_file>"
+        print "\nWrong usage! Please try again.\nUsage: executeImobilizato.py <input_file>\n"
     else:
         execute(sys.argv[1])

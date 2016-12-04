@@ -8,4 +8,3 @@ Contato: Maria Gabriela, tel. (16) 3415-3322
 Descricao: Casa em ótima localização.
 Valor: 450.000,00
 Pokemon: e legal
-Codigo: BCD1243

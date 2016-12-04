@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<imoveis xmlns="http://www.imobilizato.com/Modelo" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imobilizato.com/Modelo modelo.xsd">
+  <imovel codigo="ACD3415">
+    <finalidade>
+      <terreno>
+        <casa>
+          <larguraTerreno>11</larguraTerreno>
+          <comprimentoTerreno>25</comprimentoTerreno>
+          <areaTerreno>300</areaTerreno>
+          <areaConstruida>0,0</areaConstruida>
+          <numeroQuartos>0</numeroQuartos>
+          <numeroBanheiros>0</numeroBanheiros>
+          <numeroGaragens>0</numeroGaragens>
+          <numeroSuites>0</numeroSuites>
+          <numeroSalas>0</numeroSalas>
+          <escritorio>false</escritorio>
+          <piscina>false</piscina>
+          <banheira>false</banheira>
+          <armarios>false</armarios>
+          <churrasqueira>false</churrasqueira>
+          <quintal>false</quintal>
+        </casa>
+      </terreno>
+    </finalidade>
+    <valor>450.000,00</valor>
+    <endereco>
+      <rua>Rua Aquidabam</rua>
+      <numero>504</numero>
+      <bairro>Centro</bairro>
+      <cidade>São Carlos</cidade>
+    </endereco>
+    <descricao>Casa em ótima localização.</descricao>
+    <contato>
+      <nome>Maria Gabriela</nome>
+      <telefone>(16) 3415-3322</telefone>
+    </contato>
+    <Pokemon>e legal</Pokemon>
+  </imovel>
+</imoveis>
