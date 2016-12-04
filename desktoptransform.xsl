@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:imo="http://www.imobilizato.com/Modelo">
     <xsl:template match="/">
         <html>
 
@@ -18,104 +19,104 @@
                     <div class="page-header">
                         <h1>Catálogo de Imóveis</h1>
                     </div>
-                <xsl:for-each select="imoveis/imovel">
+                <xsl:for-each select="imo:imoveis/imo:imovel">
                     <div class="row">
-                    <div class="col-6-lg col-6-xs">
-                    <div class="media well">
-                            <xsl:choose>
-                                <xsl:when test="finalidade/venda">
-                                        <xsl:choose>
-                                            <xsl:when test="finalidade/venda/casa">
-                                                <div class="media-left">
-                                                    <img class="media-object" src="imagens/casa.png" alt="casa" />
-                                                </div>
-                                                <div class="media-body">
-                                                    <h4 class="media-heading">Casa à Venda <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
-                                                    <xsl:apply-templates />
-                                                </div>
-                                            </xsl:when>
-                                            <xsl:when test="finalidade/venda/apartamento">
-                                                <div class="media-left">
-                                                    <img class="media-object" src="imagens/apartamento.png" alt="apartamento" />
-                                                </div>
-                                                <div class="media-body">
-                                                    <h4 class="media-heading">Apartamento à Venda <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
-                                                    <xsl:apply-templates />
-                                                </div>
-                                            </xsl:when>
-                                            <xsl:when test="finalidade/venda/barracao">
-                                                <div class="media-left">
-                                                    <img class="media-object" src="imagens/barracao.png" alt="barracao" />
-                                                </div>
-                                                <div class="media-body">
-                                                    <h4 class="media-heading">Barracão à Venda <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
-                                                    <xsl:apply-templates />
-                                                </div>
-                                            </xsl:when>
-                                            <xsl:when test="finalidade/venda/chacara">
-                                                <div class="media-left">
-                                                    <img class="media-object" src="imagens/characa.png" alt="chacara" />
-                                                </div>
-                                                <div class="media-body">
-                                                    <h4 class="media-heading">Cháraca à Venda <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
-                                                    <xsl:apply-templates />
-                                                </div>
-                                            </xsl:when>
-                                            <xsl:when test="finalidade/venda/terreno">
-                                                <div class="media-left">
-                                                    <img class="media-object" src="imagens/terreno.png" alt="terreno" />
-                                                </div>
-                                                <div class="media-body">
-                                                    <h4 class="media-heading">Terreno à Venda <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
-                                                    <xsl:apply-templates />
-                                                </div>
-                                            </xsl:when>
-                                        </xsl:choose>
-                                </xsl:when>
-
-                                <xsl:when test="finalidade/aluguel">
+                        <div class="col-6-lg col-6-xs">
+                            <div class="media well">
                                     <xsl:choose>
-                                            <xsl:when test="finalidade/aluguel/casa">
-                                                <div class="media-left">
-                                                    <img class="media-object" src="imagens/casa.png" alt="casa" />
-                                                </div>
-                                                <div class="media-body">
-                                                    <h4 class="media-heading">Casa para Alugar <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
-                                                    <xsl:apply-templates />
-                                                </div>
-                                            </xsl:when>
-                                            <xsl:when test="finalidade/aluguel/apartamento">
-                                                <div class="media-left">
-                                                    <img class="media-object" src="imagens/apartamento.png" alt="apartamento" />
-                                                </div>
-                                                <div class="media-body">
-                                                    <h4 class="media-heading">Apartamento para Alugar <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
-                                                    <xsl:apply-templates />
-                                                </div>
-                                            </xsl:when>
-                                            <xsl:when test="finalidade/aluguel/barracao">
-                                                <div class="media-left">
-                                                    <img class="media-object" src="imagens/barracao.png" alt="barracao" />
-                                                </div>
-                                                <div class="media-body">
-                                                    <h4 class="media-heading">Barracão para Alugar <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
-                                                    <xsl:apply-templates />
-                                                </div>
-                                            </xsl:when>
-                                            <xsl:when test="finalidade/aluguel/chacara">
-                                                <div class="media-left">
-                                                    <img class="media-object" src="imagens/characa.png" alt="chacara" />
-                                                </div>
-                                                <div class="media-body">
-                                                    <h4 class="media-heading">Cháraca para Alugar <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
-                                                    <xsl:apply-templates />
-                                                </div>
-                                            </xsl:when>
-                                        </xsl:choose>
-                                </xsl:when>
-                            </xsl:choose>
-                    </div>
-                    </div>
+                                        <xsl:when test="imo:finalidade/imo:venda">
+                                                <xsl:choose>
+                                                    <xsl:when test="imo:finalidade/imo:venda/imo:casa">
+                                                        <div class="media-left">
+                                                            <img class="media-object" src="imagens/casa.png" alt="casa" />
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading">Casa à Venda <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
+                                                            <xsl:apply-templates />
+                                                        </div>
+                                                    </xsl:when>
+                                                    <xsl:when test="imo:finalidade/imo:venda/imo:apartamento">
+                                                        <div class="media-left">
+                                                            <img class="media-object" src="imagens/apartamento.png" alt="apartamento" />
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading">Apartamento à Venda <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
+                                                            <xsl:apply-templates />
+                                                        </div>
+                                                    </xsl:when>
+                                                    <xsl:when test="imo:finalidade/imo:venda/imo:barracao">
+                                                        <div class="media-left">
+                                                            <img class="media-object" src="imagens/barracao.png" alt="barracao" />
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading">Barracão à Venda <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
+                                                            <xsl:apply-templates />
+                                                        </div>
+                                                    </xsl:when>
+                                                    <xsl:when test="imo:finalidade/imo:venda/imo:chacara">
+                                                        <div class="media-left">
+                                                            <img class="media-object" src="imagens/characa.png" alt="chacara" />
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading">Cháraca à Venda <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
+                                                            <xsl:apply-templates />
+                                                        </div>
+                                                    </xsl:when>
+                                                    <xsl:when test="imo:finalidade/imo:venda/imo:terreno">
+                                                        <div class="media-left">
+                                                            <img class="media-object" src="imagens/terreno.png" alt="terreno" />
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading">Terreno à Venda <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
+                                                            <xsl:apply-templates />
+                                                        </div>
+                                                    </xsl:when>
+                                                </xsl:choose>
+                                        </xsl:when>
+
+                                        <xsl:when test="imo:finalidade/imo:aluguel">
+                                            <xsl:choose>
+                                                    <xsl:when test="imo:finalidade/imo:aluguel/imo:casa">
+                                                        <div class="media-left">
+                                                            <img class="media-object" src="imagens/casa.png" alt="casa" />
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading">Casa para Alugar <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
+                                                            <xsl:apply-templates />
+                                                        </div>
+                                                    </xsl:when>
+                                                    <xsl:when test="imo:finalidade/imo:aluguel/imo:apartamento">
+                                                        <div class="media-left">
+                                                            <img class="media-object" src="imagens/apartamento.png" alt="apartamento" />
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading">Apartamento para Alugar <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
+                                                            <xsl:apply-templates />
+                                                        </div>
+                                                    </xsl:when>
+                                                    <xsl:when test="imo:finalidade/imo:aluguel/imo:barracao">
+                                                        <div class="media-left">
+                                                            <img class="media-object" src="imagens/barracao.png" alt="barracao" />
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading">Barracão para Alugar <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
+                                                            <xsl:apply-templates />
+                                                        </div>
+                                                    </xsl:when>
+                                                    <xsl:when test="imo:finalidade/imo:aluguel/imo:chacara">
+                                                        <div class="media-left">
+                                                            <img class="media-object" src="imagens/characa.png" alt="chacara" />
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading">Cháraca para Alugar <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
+                                                            <xsl:apply-templates />
+                                                        </div>
+                                                    </xsl:when>
+                                                </xsl:choose>
+                                        </xsl:when>
+                                    </xsl:choose>
+                            </div>
+                        </div>
                     </div>
                     <hr />
                 </xsl:for-each>         
@@ -127,161 +128,161 @@
         </html>
     </xsl:template>
 
-    <xsl:template match="casa | terreno | barracao | apartamento | chacara">
+        <xsl:template match="imo:casa | imo:terreno | imo:barracao | imo:apartamento | imo:chacara">
         <table class="table">
-            <xsl:if test="./larguraTerreno">
+            <xsl:if test="imo:larguraTerreno">
                 <tr>
                     <td>Largura</td>
-                    <td><xsl:value-of select="larguraTerreno" /></td>
+                    <td><xsl:value-of select="imo:larguraTerreno" /></td>
                 </tr>
             </xsl:if>
-            <xsl:if test="./comprimentoTerreno">
+            <xsl:if test="imo:comprimentoTerreno">
                 <tr>
                     <td>Comprimento</td>
-                    <td><xsl:value-of select="comprimentoTerreno" /></td>
+                    <td><xsl:value-of select="imo:comprimentoTerreno" /></td>
                 </tr>
             </xsl:if>
-            <xsl:if test="./areaTerreno">
+            <xsl:if test="imo:areaTerreno">
                 <tr>
                     <td>Área Terreno</td>
-                    <td><xsl:value-of select="areaTerreno" /></td>
+                    <td><xsl:value-of select="imo:areaTerreno" /></td>
                 </tr>
             </xsl:if>
-            <xsl:if test="./areaConstruida">
+            <xsl:if test="imo:areaConstruida">
                 <tr>
                     <td>Área Construída</td>
-                    <td><xsl:value-of select="areaConstruida" /></td>
+                    <td><xsl:value-of select="imo:areaConstruida" /></td>
                 </tr>
             </xsl:if>
-            <xsl:if test="./numeroQuartos">
+            <xsl:if test="imo:numeroQuartos">
                 <tr>
                     <td>Quartos</td>
-                    <td><xsl:value-of select="numeroQuartos" /></td>
+                    <td><xsl:value-of select="imo:numeroQuartos" /></td>
                 </tr>
             </xsl:if>
-            <xsl:if test="./numeroBanheiros">
+            <xsl:if test="imo:numeroBanheiros">
                 <tr>
                     <td>Banheiros</td>
-                    <td><xsl:value-of select="numeroBanheiros" /></td>
+                    <td><xsl:value-of select="imo:numeroBanheiros" /></td>
                 </tr>
             </xsl:if>
-            <xsl:if test="./numeroGaragens">
+            <xsl:if test="imo:numeroGaragens">
                 <tr>
                     <td>Garagens</td>
-                    <td><xsl:value-of select="numeroGaragens" /></td>
+                    <td><xsl:value-of select="imo:numeroGaragens" /></td>
                 </tr>
             </xsl:if>
-            <xsl:if test="./numeroSuites">
+            <xsl:if test="imo:numeroSuites">
                 <tr>
                     <td>Suítes</td>
-                    <td><xsl:value-of select="numeroSuites" /></td>
+                    <td><xsl:value-of select="imo:numeroSuites" /></td>
                 </tr>
             </xsl:if>
-            <xsl:if test="./numeroSalas">
+            <xsl:if test="imo:numeroSalas">
                 <tr>
                     <td>Salas</td>
-                    <td><xsl:value-of select="numeroSalas" /></td>
+                    <td><xsl:value-of select="imo:numeroSalas" /></td>
                 </tr>
             </xsl:if>
-            <xsl:if test="./escritorio">
+            <xsl:if test="imo:escritorio">
                 <tr>
                     <td>Escritório</td>
                     <td>
                         <xsl:choose>
-                            <xsl:when test=".[escritorio='true']">
+                            <xsl:when test=".[imo:escritorio='true']">
                                 Sim
                             </xsl:when>
-                            <xsl:when test=".[escritorio='false']">
+                            <xsl:when test=".[imo:escritorio='false']">
                                 Não
                             </xsl:when>
                         </xsl:choose>
                     </td>
                 </tr>
             </xsl:if>
-            <xsl:if test="./piscina">
+            <xsl:if test="imo:piscina">
                 <tr>
                     <td>Piscina</td>
                     <td>
                         <xsl:choose>
-                            <xsl:when test=".[piscina='true']">
+                            <xsl:when test=".[imo:piscina='true']">
                                 Sim
                             </xsl:when>
-                            <xsl:when test=".[piscina='false']">
+                            <xsl:when test=".[imo:piscina='false']">
                                 Não
                             </xsl:when>
                         </xsl:choose>
                     </td>
                 </tr>
             </xsl:if>
-            <xsl:if test="./banheira">
+            <xsl:if test="imo:banheira">
                 <tr>
                     <td>Banheira</td>
                     <td>
                         <xsl:choose>
-                            <xsl:when test=".[banheira='true']">
+                            <xsl:when test=".[imo:banheira='true']">
                                 Sim
                             </xsl:when>
-                            <xsl:when test=".[banheira='false']">
+                            <xsl:when test=".[imo:banheira='false']">
                                 Não
                             </xsl:when>
                         </xsl:choose>
                     </td>
                 </tr>
             </xsl:if>
-            <xsl:if test="./armarios">
+            <xsl:if test="imo:armarios">
                 <tr>
                     <td>Armários</td>
                     <td>
                         <xsl:choose>
-                            <xsl:when test=".[armarios='true']">
+                            <xsl:when test=".[imo:armarios='true']">
                                 Sim
                             </xsl:when>
-                            <xsl:when test=".[armarios='false']">
+                            <xsl:when test=".[imo:armarios='false']">
                                 Não
                             </xsl:when>
                         </xsl:choose>
                     </td>
                 </tr>
             </xsl:if>
-            <xsl:if test="./churrasqueira">
+            <xsl:if test="imo:churrasqueira">
                 <tr>
                     <td>Churrasqueira</td>
                     <td>
                         <xsl:choose>
-                            <xsl:when test=".[churrasqueira='true']">
+                            <xsl:when test=".[imo:churrasqueira='true']">
                                 Sim
                             </xsl:when>
-                            <xsl:when test=".[churrasqueira='false']">
+                            <xsl:when test=".[imo:churrasqueira='false']">
                                 Não
                             </xsl:when>
                         </xsl:choose>
                     </td>
                 </tr>
             </xsl:if>
-            <xsl:if test="./quintal">
+            <xsl:if test="imo:quintal">
                 <tr>
                     <td>Quintal</td>
                     <td>
                         <xsl:choose>
-                            <xsl:when test=".[quintal='true']">
+                            <xsl:when test=".[imo:quintal='true']">
                                 Sim
                             </xsl:when>
-                            <xsl:when test=".[quintal='false']">
+                            <xsl:when test=".[imo:quintal='false']">
                                 Não
                             </xsl:when>
                         </xsl:choose>
                     </td>
                 </tr>
             </xsl:if>
-            <xsl:if test="./financiamento">
+            <xsl:if test="imo:financiamento">
                 <tr>
                     <td>Financiamento</td>
                     <td>
                         <xsl:choose>
-                            <xsl:when test=".[financiamento='true']">
+                            <xsl:when test=".[imo:financiamento='true']">
                                 Sim
                             </xsl:when>
-                            <xsl:when test=".[financiamento='false']">
+                            <xsl:when test=".[imo:financiamento='false']">
                                 Não
                             </xsl:when>
                         </xsl:choose>
@@ -293,97 +294,49 @@
         <div class="page-header">
             <h4>Informações Adicionais</h4>
         </div>
-            <xsl:if test="./financiamento">
+            <xsl:if test="imo:financiamento">
                 <p>
                 <xsl:choose>
-                    <xsl:when test=".[financiamento='true']">
+                    <xsl:when test=".[imo:financiamento='true']">
                         Aceita financiamento
                     </xsl:when>
-                    <xsl:when test=".[financiamento='false']">
+                    <xsl:when test=".[imo:financiamento='false']">
                         Não aceita financiamento
                     </xsl:when>
                 </xsl:choose>
                 </p>
             </xsl:if>
 
-            <xsl:if test="./IPTU">
-                <p>Valor do IPTU: R$<xsl:value-of select="IPTU" /></p>
+            <xsl:if test="imo:IPTU">
+                <p>Valor do IPTU: R$<xsl:value-of select="imo:IPTU" /></p>
             </xsl:if>
-            <xsl:if test="./condominio">
-                <p>Condomínio: R$<xsl:value-of select="condominio" /></p>
+            <xsl:if test="imo:condominio">
+                <p>Condomínio: R$<xsl:value-of select="imo:condominio" /></p>
             </xsl:if>
     </xsl:template>
-
-    <!-- Comeco do Template de Endereço -->
-    <xsl:template match="endereco">
-        <p>Local: <xsl:value-of select="rua"/> - <xsl:value-of select="numero"/> - <xsl:value-of select="bairro"/> - <xsl:value-of select="cidade"/></p>
-    </xsl:template>
-    <!-- Final do Template de Endereço -->
 
     <!-- Comeco do Template de Valor -->
-    <xsl:template match="valor">
+    <xsl:template match="imo:valor">
         <p>Valor: R$<xsl:value-of select="."/></p>
     </xsl:template>
     <!-- Final do Template de Valor -->
 
     <!-- Comeco do Template de Descrição -->
-    <xsl:template match="descricao">
+    <xsl:template match="imo:descricao">
         <p>Descrição: <xsl:value-of select="."/></p>
     </xsl:template>
     <!-- Final do Template de Descrição -->
 
+    
+    <!-- Comeco do Template de Endereço -->
+    <xsl:template match="imo:endereco">
+        <p>Local: <xsl:value-of select="imo:rua"/> - <xsl:value-of select="imo:numero"/> - <xsl:value-of select="imo:bairro"/> - <xsl:value-of select="imo:cidade"/></p>
+    </xsl:template>
+    <!-- Final do Template de Endereço -->
+
     <!-- Comeco do Template de Contato -->
-    <xsl:template match="contato">
-        <p>Tratar com: <xsl:value-of select="nome"/> / <xsl:value-of select="telefone"/></p>
+    <xsl:template match="imo:contato">
+        <p>Tratar com: <xsl:value-of select="imo:nome"/> / <xsl:value-of select="imo:telefone"/></p>
     </xsl:template>
     <!-- Final do Template de Contato -->
-
-    <xsl:template match="areaConstruida">
-        <xsl:value-of select="." />
-    </xsl:template>
-
-    <xsl:template match="numeroQuartos">
-        <xsl:value-of select="." />
-    </xsl:template>
-
-    <xsl:template match="numeroBanheiros">
-        <xsl:value-of select="." />
-    </xsl:template>
-
-    <xsl:template match="numeroGaragens">
-        <xsl:value-of select="." />
-    </xsl:template>
-
-    <xsl:template match="numeroSuites">
-        <xsl:value-of select="." />
-    </xsl:template>
-
-    <xsl:template match="numeroSalas">
-        <xsl:value-of select="." />
-    </xsl:template>
-
-    <xsl:template match="escritorio">
-        <xsl:value-of select="." />
-    </xsl:template>
-
-    <xsl:template match="piscina">
-        <xsl:value-of select="." />
-    </xsl:template>
-
-    <xsl:template match="banheira">
-        <xsl:value-of select="." />
-    </xsl:template>
-
-    <xsl:template match="armarios">
-        <xsl:value-of select="." />
-    </xsl:template>
-
-    <xsl:template match="churrasqueira">
-        <xsl:value-of select="." />
-    </xsl:template>
-
-    <xsl:template match="quintal">
-        <xsl:value-of select="." />
-    </xsl:template>
-
 </xsl:stylesheet>
