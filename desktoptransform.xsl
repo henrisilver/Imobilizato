@@ -31,7 +31,7 @@
                                                             <img class="media-object" src="imagens/casa.png" alt="casa" />
                                                         </div>
                                                         <div class="media-body">
-                                                            <h4 class="media-heading">Casa a Venda <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
+                                                            <h4 class="media-heading info-header">Casa a Venda <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
                                                             <xsl:apply-templates />
                                                         </div>
                                                     </xsl:when>
@@ -40,7 +40,7 @@
                                                             <img class="media-object" src="imagens/apartamento.png" alt="apartamento" />
                                                         </div>
                                                         <div class="media-body">
-                                                            <h4 class="media-heading">Apartamento a Venda <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
+                                                            <h4 class="media-heading info-header">Apartamento a Venda <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
                                                             <xsl:apply-templates />
                                                         </div>
                                                     </xsl:when>
@@ -49,7 +49,7 @@
                                                             <img class="media-object" src="imagens/barracao.png" alt="barracao" />
                                                         </div>
                                                         <div class="media-body">
-                                                            <h4 class="media-heading">Barracão a Venda <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
+                                                            <h4 class="media-heading info-header">Barracão a Venda <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
                                                             <xsl:apply-templates />
                                                         </div>
                                                     </xsl:when>
@@ -58,7 +58,7 @@
                                                             <img class="media-object" src="imagens/characa.png" alt="chacara" />
                                                         </div>
                                                         <div class="media-body">
-                                                            <h4 class="media-heading">Cháraca a Venda <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
+                                                            <h4 class="media-heading info-header">Cháraca a Venda <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
                                                             <xsl:apply-templates />
                                                         </div>
                                                     </xsl:when>
@@ -67,7 +67,7 @@
                                                             <img class="media-object" src="imagens/terreno.png" alt="terreno" />
                                                         </div>
                                                         <div class="media-body">
-                                                            <h4 class="media-heading">Terreno a Venda <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
+                                                            <h4 class="media-heading info-header">Terreno a Venda <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
                                                             <xsl:apply-templates />
                                                         </div>
                                                     </xsl:when>
@@ -81,7 +81,7 @@
                                                             <img class="media-object" src="imagens/casa.png" alt="casa" />
                                                         </div>
                                                         <div class="media-body">
-                                                            <h4 class="media-heading">Casa para Alugar <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
+                                                            <h4 class="media-heading info-header">Casa para Alugar <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
                                                             <xsl:apply-templates />
                                                         </div>
                                                     </xsl:when>
@@ -90,7 +90,7 @@
                                                             <img class="media-object" src="imagens/apartamento.png" alt="apartamento" />
                                                         </div>
                                                         <div class="media-body">
-                                                            <h4 class="media-heading">Apartamento para Alugar <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
+                                                            <h4 class="media-heading info-header">Apartamento para Alugar <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
                                                             <xsl:apply-templates />
                                                         </div>
                                                     </xsl:when>
@@ -99,7 +99,7 @@
                                                             <img class="media-object" src="imagens/barracao.png" alt="barracao" />
                                                         </div>
                                                         <div class="media-body">
-                                                            <h4 class="media-heading">Barracão para Alugar <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
+                                                            <h4 class="media-heading info-header">Barracão para Alugar <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
                                                             <xsl:apply-templates />
                                                         </div>
                                                     </xsl:when>
@@ -108,7 +108,7 @@
                                                             <img class="media-object" src="imagens/characa.png" alt="chacara" />
                                                         </div>
                                                         <div class="media-body">
-                                                            <h4 class="media-heading">Cháraca para Alugar <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
+                                                            <h4 class="media-heading info-header">Cháraca para Alugar <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
                                                             <xsl:apply-templates />
                                                         </div>
                                                     </xsl:when>
