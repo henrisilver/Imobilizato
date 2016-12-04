@@ -1,6 +1,63 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<root>
-	<Age>65</Age>
-	<Class>Super Professor</Class>
-	<Nome>HighEnd</Nome>
-</root>
+<?xml version='1.0' encoding='UTF-8'?>
+<imoveis xmlns="http://www.imobilizato.com/Modelo" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imobilizato.com/Modelo modelo.xsd">
+  <imovel codigo="ACD3415">
+    <finalidade>
+      <venda>
+        <casa>
+          <larguraTerreno>11</larguraTerreno>
+          <comprimentoTerreno>25</comprimentoTerreno>
+          <areaTerreno>300</areaTerreno>
+          <areaConstruida>112</areaConstruida>
+          <numeroQuartos>2</numeroQuartos>
+          <numeroBanheiros>2</numeroBanheiros>
+          <numeroGaragens>2</numeroGaragens>
+          <numeroSuites>1</numeroSuites>
+          <numeroSalas>1</numeroSalas>
+          <escritorio>false</escritorio>
+          <piscina>false</piscina>
+          <banheira>false</banheira>
+          <armarios>false</armarios>
+          <churrasqueira>false</churrasqueira>
+          <quintal>true</quintal>
+          <financiamento>false</financiamento>
+        </casa>
+      </venda>
+    </finalidade>
+    <valor>450.000,00</valor>
+    <endereco>
+      <rua>Rua Aquidabam</rua>
+      <numero>504</numero>
+      <bairro>Centro</bairro>
+      <cidade>São Carlos</cidade>
+    </endereco>
+    <descricao>Casa em ótima localização.</descricao>
+    <contato>
+      <nome>Maria Gabriela</nome>
+      <telefone>(16) 3415-3322</telefone>
+    </contato>
+  </imovel>
+  <imovel codigo="BCD1243">
+    <finalidade>
+      <venda>
+        <terreno>
+          <larguraTerreno>10</larguraTerreno>
+          <comprimentoTerreno>25</comprimentoTerreno>
+          <areaTerreno>250</areaTerreno>
+          <financiamento>true</financiamento>
+        </terreno>
+      </venda>
+    </finalidade>
+    <valor>155.000,00</valor>
+    <endereco>
+      <rua>Rua José Luis Caron</rua>
+      <numero>45</numero>
+      <bairro>Parque Fehr</bairro>
+      <cidade>São Carlos</cidade>
+    </endereco>
+    <descricao>Terreno plano em excelentes condições.</descricao>
+    <contato>
+      <nome>João Damião da Silva</nome>
+      <telefone>(16) 3322-5453</telefone>
+    </contato>
+  </imovel>
+</imoveis>
