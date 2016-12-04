@@ -31,7 +31,7 @@
                                                             <img class="media-object" src="imagens/casa.png" alt="casa" />
                                                         </div>
                                                         <div class="media-body">
-                                                            <h4 class="media-heading">Casa à Venda <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
+                                                            <h4 class="media-heading">Casa a Venda <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
                                                             <xsl:apply-templates />
                                                         </div>
                                                     </xsl:when>
@@ -40,7 +40,7 @@
                                                             <img class="media-object" src="imagens/apartamento.png" alt="apartamento" />
                                                         </div>
                                                         <div class="media-body">
-                                                            <h4 class="media-heading">Apartamento à Venda <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
+                                                            <h4 class="media-heading">Apartamento a Venda <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
                                                             <xsl:apply-templates />
                                                         </div>
                                                     </xsl:when>
@@ -49,7 +49,7 @@
                                                             <img class="media-object" src="imagens/barracao.png" alt="barracao" />
                                                         </div>
                                                         <div class="media-body">
-                                                            <h4 class="media-heading">Barracão à Venda <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
+                                                            <h4 class="media-heading">Barracão a Venda <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
                                                             <xsl:apply-templates />
                                                         </div>
                                                     </xsl:when>
@@ -58,7 +58,7 @@
                                                             <img class="media-object" src="imagens/characa.png" alt="chacara" />
                                                         </div>
                                                         <div class="media-body">
-                                                            <h4 class="media-heading">Cháraca à Venda <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
+                                                            <h4 class="media-heading">Cháraca a Venda <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
                                                             <xsl:apply-templates />
                                                         </div>
                                                     </xsl:when>
@@ -67,7 +67,7 @@
                                                             <img class="media-object" src="imagens/terreno.png" alt="terreno" />
                                                         </div>
                                                         <div class="media-body">
-                                                            <h4 class="media-heading">Terreno à Venda <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
+                                                            <h4 class="media-heading">Terreno a Venda <small>(REF #<xsl:value-of select="@codigo" />)</small></h4>
                                                             <xsl:apply-templates />
                                                         </div>
                                                     </xsl:when>
@@ -133,25 +133,25 @@
             <xsl:if test="imo:larguraTerreno">
                 <tr>
                     <td>Largura</td>
-                    <td><xsl:value-of select="imo:larguraTerreno" /></td>
+                    <td><xsl:value-of select="imo:larguraTerreno" />m</td>
                 </tr>
             </xsl:if>
             <xsl:if test="imo:comprimentoTerreno">
                 <tr>
                     <td>Comprimento</td>
-                    <td><xsl:value-of select="imo:comprimentoTerreno" /></td>
+                    <td><xsl:value-of select="imo:comprimentoTerreno" />m</td>
                 </tr>
             </xsl:if>
             <xsl:if test="imo:areaTerreno">
                 <tr>
                     <td>Área Terreno</td>
-                    <td><xsl:value-of select="imo:areaTerreno" /></td>
+                    <td><xsl:value-of select="imo:areaTerreno" />m²</td>
                 </tr>
             </xsl:if>
             <xsl:if test="imo:areaConstruida">
                 <tr>
                     <td>Área Construída</td>
-                    <td><xsl:value-of select="imo:areaConstruida" /></td>
+                    <td><xsl:value-of select="imo:areaConstruida" />m²</td>
                 </tr>
             </xsl:if>
             <xsl:if test="imo:numeroQuartos">
@@ -189,10 +189,10 @@
                     <td>Escritório</td>
                     <td>
                         <xsl:choose>
-                            <xsl:when test=".[imo:escritorio='true']">
+                            <xsl:when test="imo:escritorio='true'">
                                 Sim
                             </xsl:when>
-                            <xsl:when test=".[imo:escritorio='false']">
+                            <xsl:when test="imo:escritorio='false'">
                                 Não
                             </xsl:when>
                         </xsl:choose>
@@ -204,10 +204,10 @@
                     <td>Piscina</td>
                     <td>
                         <xsl:choose>
-                            <xsl:when test=".[imo:piscina='true']">
+                            <xsl:when test="imo:piscina='true'">
                                 Sim
                             </xsl:when>
-                            <xsl:when test=".[imo:piscina='false']">
+                            <xsl:when test="imo:piscina='false'">
                                 Não
                             </xsl:when>
                         </xsl:choose>
@@ -219,10 +219,10 @@
                     <td>Banheira</td>
                     <td>
                         <xsl:choose>
-                            <xsl:when test=".[imo:banheira='true']">
+                            <xsl:when test="imo:banheira='true'">
                                 Sim
                             </xsl:when>
-                            <xsl:when test=".[imo:banheira='false']">
+                            <xsl:when test="imo:banheira='false'">
                                 Não
                             </xsl:when>
                         </xsl:choose>
@@ -234,10 +234,10 @@
                     <td>Armários</td>
                     <td>
                         <xsl:choose>
-                            <xsl:when test=".[imo:armarios='true']">
+                            <xsl:when test="imo:armarios='true'">
                                 Sim
                             </xsl:when>
-                            <xsl:when test=".[imo:armarios='false']">
+                            <xsl:when test="imo:armarios='false'">
                                 Não
                             </xsl:when>
                         </xsl:choose>
@@ -249,10 +249,10 @@
                     <td>Churrasqueira</td>
                     <td>
                         <xsl:choose>
-                            <xsl:when test=".[imo:churrasqueira='true']">
+                            <xsl:when test="imo:churrasqueira='true'">
                                 Sim
                             </xsl:when>
-                            <xsl:when test=".[imo:churrasqueira='false']">
+                            <xsl:when test="imo:churrasqueira='false'">
                                 Não
                             </xsl:when>
                         </xsl:choose>
@@ -264,10 +264,10 @@
                     <td>Quintal</td>
                     <td>
                         <xsl:choose>
-                            <xsl:when test=".[imo:quintal='true']">
+                            <xsl:when test="imo:quintal='true'">
                                 Sim
                             </xsl:when>
-                            <xsl:when test=".[imo:quintal='false']">
+                            <xsl:when test="imo:quintal='false'">
                                 Não
                             </xsl:when>
                         </xsl:choose>
@@ -279,10 +279,10 @@
                     <td>Financiamento</td>
                     <td>
                         <xsl:choose>
-                            <xsl:when test=".[imo:financiamento='true']">
+                            <xsl:when test="imo:financiamento='true'">
                                 Sim
                             </xsl:when>
-                            <xsl:when test=".[imo:financiamento='false']">
+                            <xsl:when test="imo:financiamento='false'">
                                 Não
                             </xsl:when>
                         </xsl:choose>
@@ -297,10 +297,10 @@
             <xsl:if test="imo:financiamento">
                 <p>
                 <xsl:choose>
-                    <xsl:when test=".[imo:financiamento='true']">
+                    <xsl:when test="imo:financiamento='true'">
                         Aceita financiamento
                     </xsl:when>
-                    <xsl:when test=".[imo:financiamento='false']">
+                    <xsl:when test="imo:financiamento='false'">
                         Não aceita financiamento
                     </xsl:when>
                 </xsl:choose>
@@ -327,7 +327,7 @@
     </xsl:template>
     <!-- Final do Template de Descrição -->
 
-    
+
     <!-- Comeco do Template de Endereço -->
     <xsl:template match="imo:endereco">
         <p>Local: <xsl:value-of select="imo:rua"/> - <xsl:value-of select="imo:numero"/> - <xsl:value-of select="imo:bairro"/> - <xsl:value-of select="imo:cidade"/></p>
