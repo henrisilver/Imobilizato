@@ -11,8 +11,9 @@ def execute(filename):
 
     print "\nChecking generated " + generatedXML + " against the schema in modelo.xsd...\n"
     status, output = commands.getstatusoutput("xmllint --schema modelo.xsd " + generatedXML + " --noout")
+    print output
     if status != 0:
-        print "\nNot generating Desktop, mobile HTML and RSS XML since XML is invalid...\n"
+        print "\nNot generating Desktop, mobile HTML and RSS XML since " + generatedXML + " is invalid...\n"
         return
 
     generatedDesktopHTML = "XSLTOutput/" + str(os.path.splitext(name)[0]) + "_desktop.html"
