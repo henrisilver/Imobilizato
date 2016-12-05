@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+# biblioteca lxml: utilizada para formar o arquivo XML
 from lxml import etree
 import sys, os
 
+# Constantes utilizadas para Namespace da biblioteca LXML
 SCHEMA_INSTANCE_NS = "http://www.w3.org/2001/XMLSchema-instance"
 SCHEMA = "{%s}" % SCHEMA_INSTANCE_NS
 NSMAP_SCHEMA = {"xsi" : SCHEMA_INSTANCE_NS}
@@ -14,6 +16,9 @@ NSMAP_IMOBILIZATO = {None : IMOBILIZATO_NS}
 
 TIPO_IMOVEL_DIC = {"casa": "casa", "apartamento": "apartamento", "chácara": "chacara", "terreno": "terreno", "barracão": "barracao"}
 
+# Funcoes para procesmento de campos do arquivo.
+# Em caso de campos booleanos, deve haver um tratamento especial,
+# para converter "sim" e "não" em "true" e "false", aceitos pelo XML
 def processRegularField(field):
     return field
 
@@ -25,6 +30,9 @@ def processBooleanField(field):
     else:
         return "error"
 
+# Funcoes para parsing de campos opcionais como Suites, Salas, Escritorio, etc.
+# Caso o campo esteja presente para o imovel em questao, ele e processado.
+# Caso contrario, e usado um valor padrao
 def setOptionalPropertyImovelType(optionalProperty, xmlName, exceptTypes, parent, flatDict, defaultValue, processingFunc):
     currentField = getFieldFromDict(flatDict, optionalProperty)
     if currentField is not None:
@@ -40,14 +48,19 @@ def setOptionalPropertyFinalidadeType(optionalProperty, xmlName, parent, flatDic
         currentElement = etree.SubElement(parent, xmlName)
         currentElement.text = unicode(processingFunc(currentField), "utf-8")
 
+# Dado um dicionario contendo o conteudo do txt, e retornado o valor de uma chave
+# field do dicionario. Caso a chave nao exista, e retornado None
 def getFieldFromDict(dictionary, field):
     try:
         return dictionary.pop(field)
     except KeyError:
         return None
 
+# Funcao que cria a arvore que sera convertida em XML
 def addToTree(flatDict, root):
 
+    # Adiciona-se a raiz da arvore o elemento imovel, com subelementos adequados como
+    # finalidade, endereco, descricao, tipo,  etc.
     imovel = etree.SubElement(root, "imovel")
     try:
         imovel.set("codigo", unicode(getFieldFromDict(flatDict, "Codigo"), "utf-8"))
@@ -159,7 +172,11 @@ def addToTree(flatDict, root):
         child = etree.SubElement(imovel, unicode(key, "utf-8"))
         child.text = unicode(value, "utf-8")
 
-
+# Funcionamento do parser
+# 1) os dados sao lidos do arquivo de entrada
+# 2) a arvore a ser exportada para XML e criada
+# 3) a qrvore e convertida para XML
+# 4) o XML e escrito em um arquivo
 def runParser(filename):
     data = readFile(filename)
     
@@ -176,52 +193,58 @@ def runParser(filename):
     
     print "File parsed successfuly."
 
-
+# Le arquivo de entrada
 def readFile(filename):
     with open(filename, 'r') as f:
         read_data = f.read()
     return read_data
 
+# Cria a arvore a ser exportada para XML
 def text2tree(data):
-    # try:
-    lines = data.splitlines()
-            
-    flatDict = {}
+    try:
+        # Divide o conteudo do arquivo em linhas
+        lines = data.splitlines()
+             
+        # Para facilitar o processamento do arquivo, cada linha e armazenada em um dicionario.
+        # A chave e o nome da propriedade (por exemplo, "Finalidade") e o valor corresponde ao
+        # valor da propriedade (por exemplo, "venda")
+        flatDict = {}
 
-    root = etree.Element(IMOBILIZATO + "imoveis", nsmap=NSMAP_IMOBILIZATO)
+        # Cria o elemento raiz do XML
+        root = etree.Element(IMOBILIZATO + "imoveis", nsmap=NSMAP_IMOBILIZATO)
 
-    root.set(SCHEMA + "schemaLocation", "http://www.imobilizato.com/Modelo modelo.xsd")
-            
-    firstRun = True
+        root.set(SCHEMA + "schemaLocation", "http://www.imobilizato.com/Modelo modelo.xsd")
+                
+        firstRun = True
 
-    for line in lines:
-        parsedLine = line.split(":")
-        if parsedLine[0] == "Codigo" and not firstRun:
+        # Realiza o parsing de cada linha
+        for line in lines:
+            parsedLine = line.split(":")
+            if parsedLine[0] == "Codigo" and not firstRun:
+                addToTree(flatDict, root)
+                flatDict = {}
+
+            flatDict[parsedLine[0].strip()] = parsedLine[1].strip()
+            firstRun = False
+
+        if len(flatDict) > 0:
             addToTree(flatDict, root)
-            flatDict = {}
 
-        flatDict[parsedLine[0].strip()] = parsedLine[1].strip()
-        firstRun = False
+        return root
 
-    if len(flatDict) > 0:
-        addToTree(flatDict, root)
+    except Exception as e:
+        print "Bad input! The txt file provided cannot be parsed."
+        exc_type, exc_obj, exc_tb = sys.exc_info()
+        fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+        print(exc_type, fname, exc_tb.tb_lineno)
+        return None
 
-    return root
-
-    # except Exception as e:
-    #     print "Bad input! The txt file provided cannot be parsed."
-    #     exc_type, exc_obj, exc_tb = sys.exc_info()
-    #     fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-    #     print(exc_type, fname, exc_tb.tb_lineno)
-    #     return None
-
-
-
-
+# Converte uma arvore para XML
 def tree2XML(root):
     xml = etree.tostring(root, xml_declaration=True, encoding='UTF-8', pretty_print=True)
     return xml
 
+# Escreve o XML em um arquivo
 def writeXML(xml, filename):
     with open("XML/" + str(filename) + ".xml", 'w') as f:
         f.write(xml)
