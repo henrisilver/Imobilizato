@@ -28,14 +28,21 @@ O diretório deste projeto contém pastas específicas:
 
 - inputText: contém as entradas em txt que devem ser convertidas para XML e
 outros formatos. O usuário do nosso sistema pode optar por deixar os arquivos
-TXT a serem processados nesse diretório.
+TXT a serem processados nesse diretório. Enregamos essa pasta contendo um
+exemplo de TXT idêntico ao do PDF fornecido com as especificações do trabalho.
 
 - XML: contém os arquivos XML gerados pelo parser na leitura do arquivo TXT
-de entrada e que serão utilizados pelas transformações XSL.
+de entrada e que serão utilizados pelas transformações XSL. Entregamos essa
+pasta com o XML gerado a partir do exemplo fornecido no PDF de especificação
+do trabalho. 
+IMPORTANTE: é necessária a exeistência da pasta XML para que o
+parser realize a gravação dos arquivos XML gerados por ele.
 
 - XSLTOutput: contém os arquivos HTML e XML referentes às páginas para desktop,
 mobile e RSS, geradas do arquivo XML intermediário. Nesta pasta há também os
-arquivos CSS e de imagens para as páginas "decoradas".
+arquivos CSS e de imagens para as páginas "decoradas". Enviamos essa pasta
+contendo os arquivos CSS e de imagens e também os resultados da aplicação dos
+XSL ao exemplo do PDF de especificação do trabalho.
 
 - tests: casos de teste elaborados pelo grupo, usados para testar o parser e
 verificar o comportamento do sistema. Foram criados diversos casos de teste
